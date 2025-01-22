@@ -50,6 +50,64 @@ function LinkedList() {
         return nodeHead;
     }
 
+    function at(index) {
+        let pointer = nodeHead;
+
+        // check if index is in the range of length
+        if (index < length - (length - 1) || index > length) {
+            console.log('Invalid index. No node found');
+        } else {
+            // while index is less than
+            for (let i = 1; i !== index; i++) {
+                pointer = pointer.nextNode;
+            }
+
+            console.log(pointer);
+            return pointer;
+        }
+    }
+
+    function pop() {
+        // create pointer
+        let pointer = nodeHead;
+        let nextPointer = nodeHead.nextNode;
+
+        if (pointer.nextNode === null) {
+            nodeHead = null;
+        } else {
+            while (nextPointer.nextNode !== null) {
+                nextPointer = nextPointer.nextNode;
+                pointer = pointer.nextNode;
+            }
+            const returnNode = nextPointer;
+            pointer.nextNode = null;
+            return returnNode;
+        }
+
+        length--;
+    }
+
+    function contains(value) {
+        let pointer = nodeHead;
+        while (pointer !== null) {
+            if (pointer.value === value) return true;
+            pointer = pointer.nextNode;
+        }
+        return false;
+    }
+
+    function find(value) {
+        let index = 1;
+        let pointer = nodeHead;
+        while (pointer !== null) {
+            if (pointer.value === value) return index;
+
+            pointer = pointer.nextNode;
+            index++;
+        }
+        return null;
+    }
+
     function toString() {
         let pointer = nodeHead;
 
@@ -68,6 +126,10 @@ function LinkedList() {
         prepend,
         size,
         head,
+        at,
+        pop,
+        contains,
+        find,
         toString,
         length,
     };
@@ -83,4 +145,9 @@ list.prepend('hamster');
 list.size();
 list.toString();
 list.head();
+list.at(3);
+list.pop();
+list.toString();
+console.log(list.contains('bird'));
+console.log(list.find('cat'));
 // console.log(list.toString());

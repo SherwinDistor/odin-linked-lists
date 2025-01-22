@@ -131,7 +131,6 @@ function LinkedList() {
         contains,
         find,
         toString,
-        length,
     };
 }
 

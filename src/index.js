@@ -29,6 +29,27 @@ function LinkedList() {
         length++;
     }
 
+    function prepend(value) {
+        const newNode = node();
+        newNode.value = value;
+
+        let pointer = nodeHead;
+        nodeHead = newNode;
+        newNode.nextNode = pointer;
+
+        length++;
+    }
+
+    function size() {
+        console.log(length);
+        return length;
+    }
+
+    function head() {
+        console.log(nodeHead);
+        return nodeHead;
+    }
+
     function toString() {
         let pointer = nodeHead;
 
@@ -44,6 +65,9 @@ function LinkedList() {
 
     return {
         append,
+        prepend,
+        size,
+        head,
         toString,
         length,
     };
@@ -54,7 +78,9 @@ const list = LinkedList();
 
 list.append('dog');
 list.append('cat');
-// list.append('parrot');
-
+list.append('parrot');
+list.prepend('hamster');
+list.size();
 list.toString();
+list.head();
 // console.log(list.toString());

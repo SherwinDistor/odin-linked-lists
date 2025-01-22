@@ -135,19 +135,14 @@ function LinkedList() {
     };
 }
 
+// example uses class syntax - adjust as necessary
 const list = LinkedList();
-// console.log(list);
 
 list.append('dog');
 list.append('cat');
 list.append('parrot');
-list.prepend('hamster');
-list.size();
+list.append('hamster');
+list.append('snake');
+list.append('turtle');
+
 list.toString();
-list.head();
-list.at(3);
-list.pop();
-list.toString();
-console.log(list.contains('bird'));
-console.log(list.find('cat'));
-// console.log(list.toString());

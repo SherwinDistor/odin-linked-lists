@@ -18,6 +18,7 @@ function LinkedList() {
             nodeHead = newNode;
         } else {
             let pointer = nodeHead;
+
             while (pointer.nextNode !== null) {
                 pointer = pointer.nextNode;
             }
@@ -28,14 +29,32 @@ function LinkedList() {
         length++;
     }
 
+    function toString() {
+        let pointer = nodeHead;
+
+        let string = '';
+
+        while (pointer !== null) {
+            string += `( ${pointer.value} ) -> `;
+            pointer = pointer.nextNode;
+        }
+
+        console.log(`${string}null`);
+    }
+
     return {
         append,
+        toString,
         length,
     };
 }
 
 const list = LinkedList();
-console.log(list);
+// console.log(list);
 
-list.append(100);
-console.log(list);
+list.append('dog');
+list.append('cat');
+// list.append('parrot');
+
+list.toString();
+// console.log(list.toString());
